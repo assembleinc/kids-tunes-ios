@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="TrackListTableHeader" customModule="Kids_Tunes" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="279"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Top Kids Music" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gyf-GF-BDz">
+                    <rect key="frame" x="20" y="104" width="236.5" height="41"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
+                    <color key="textColor" name="AMK-dark-blue"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="4qC-LD-Tiy">
+                    <rect key="frame" x="62" y="165" width="290" height="120"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n7E-so-2d1">
+                            <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="120" id="G2k-Lo-f8x"/>
+                                <constraint firstAttribute="width" constant="120" id="jkQ-Jl-NOq"/>
+                            </constraints>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="4"/>
+                            <size key="titleShadowOffset" width="5" height="4"/>
+                            <state key="normal" image="play" backgroundImage="blueButton">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="titleShadowColor" name="AMK-blur-gray"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="46"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ltJ-bb-pvY">
+                            <rect key="frame" x="170" y="0.0" width="120" height="120"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="120" id="cKq-ew-wyn"/>
+                                <constraint firstAttribute="width" constant="120" id="tfO-GI-kzR"/>
+                            </constraints>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <inset key="contentEdgeInsets" minX="0.0" minY="4" maxX="0.0" maxY="5"/>
+                            <inset key="imageEdgeInsets" minX="18" minY="-1" maxX="15" maxY="0.0"/>
+                            <size key="titleShadowOffset" width="5" height="4"/>
+                            <state key="normal" image="icon_shuffle" backgroundImage="greenButton">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="titleShadowColor" name="AMK-blur-gray"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="46"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </button>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" name="AMK-light-gray"/>
+            <constraints>
+                <constraint firstItem="4qC-LD-Tiy" firstAttribute="top" secondItem="gyf-GF-BDz" secondAttribute="bottom" constant="20" id="3tI-fZ-XdR"/>
+                <constraint firstItem="gyf-GF-BDz" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="91Z-oR-KNm"/>
+                <constraint firstItem="gyf-GF-BDz" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="60" id="DgG-dI-yRy"/>
+                <constraint firstItem="4qC-LD-Tiy" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Qfo-D3-vKQ"/>
+                <constraint firstItem="4qC-LD-Tiy" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.7" id="nSi-4n-aJK"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="playButton" destination="n7E-so-2d1" id="NHM-X3-mcc"/>
+                <outlet property="shuffleButton" destination="ltJ-bb-pvY" id="Bz1-uE-HPn"/>
+                <outlet property="titleLabel" destination="gyf-GF-BDz" id="eU0-hl-85r"/>
+            </connections>
+            <point key="canvasLocation" x="47.826086956521742" y="-187.16517857142856"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="blueButton" width="116.5" height="117"/>
+        <image name="greenButton" width="116.5" height="117"/>
+        <image name="icon_shuffle" width="46.5" height="33.5"/>
+        <image name="play" width="24" height="33"/>
+        <namedColor name="AMK-blur-gray">
+            <color red="0.87450980392156863" green="0.86274509803921573" blue="0.90588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="AMK-dark-blue">
+            <color red="0.1803921568627451" green="0.30196078431372547" blue="0.45490196078431372" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="AMK-light-gray">
+            <color red="0.97254901960784312" green="0.96862745098039216" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
