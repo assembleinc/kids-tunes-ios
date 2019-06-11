@@ -23,13 +23,42 @@ class AuthViewController: UIViewController {
     @IBAction func signInButtonTapped(_ sender: Any) {
         activityIndicator.startAnimating()
         signInButton.backgroundColor = UIColor.lightGray
-        MusicService.authenticate { [weak self] (_) in
-            self?.signInButton.backgroundColor = UIColor(named: "AMK-red")!
-            self?.activityIndicator.stopAnimating()
+        authenticate()
+    }
+    
+    private func authenticate() {
+        MusicService.authenticate { [weak self] (result) in
+            switch result {
+            case .success(_):
+                self?.resetView()
+            case .failure(_):
+                self?.showServiceSetupView()
+            }
         }
     }
     
-
+    private func showServiceSetupView() {
+        let setupViewController = SKCloudServiceSetupViewController()
+        setupViewController.delegate = self
+        
+        let setupOptions : [SKCloudServiceSetupOptionsKey: Any] = [
+            .action: SKCloudServiceSetupAction.subscribe,
+            .messageIdentifier: SKCloudServiceSetupMessageIdentifier.join
+        ]
+        
+        setupViewController.load(options: setupOptions) { [weak self] (didSuceedLoading, error) in
+            if didSuceedLoading {
+                DispatchQueue.main.async {
+                    self?.present(setupViewController, animated: true, completion: nil)
+                }
+            }
+        }
+    }
+    
+    private func resetView() {
+        signInButton.backgroundColor = UIColor(named: "AMK-red")!
+        activityIndicator.stopAnimating()
+    }
     
     private func attributedText(withString string: String, boldString: String, font: UIFont) -> NSAttributedString {
         let attributedString = NSMutableAttributedString(string: string,
@@ -39,5 +68,12 @@ class AuthViewController: UIViewController {
         attributedString.addAttributes(boldFontAttribute, range: range)
         attributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.white, range: NSRange(location: 0, length: string.count))
         return attributedString
+    }
+}
+
+extension AuthViewController: SKCloudServiceSetupViewControllerDelegate {
+    
+    func cloudServiceSetupViewControllerDidDismiss(_ cloudServiceSetupViewController: SKCloudServiceSetupViewController) {
+        resetView()
     }
 }
