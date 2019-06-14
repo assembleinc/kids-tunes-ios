@@ -10,6 +10,12 @@ import Foundation
 import MediaPlayer
 import StoreKit
 
+public enum MusicServiceError: Error {
+    case authorizationRejected
+    case userTokenError
+    case userTokenKeychainError
+}
+
 public class MusicService {
     internal static var playbackController : MusicPlaybackController?
     
@@ -22,22 +28,22 @@ public class MusicService {
         playbackController?.configure()
     }
     
-    public static func authenticate(completion: @escaping (Result<Bool, Error>) -> Void) {
+    public static func authenticate(completion: @escaping (Result<Bool, MusicServiceError>) -> Void) {
         let authStatus = SKCloudServiceController.authorizationStatus()
         switch authStatus {
         case .authorized:
             let developerToken = Constants.AppleMusic.developerToken.rawValue
             let cloudServiceController = SKCloudServiceController()
             cloudServiceController.requestUserToken(forDeveloperToken: developerToken) { (token, error) in
-                if let error = error {
-                    completion(.failure(error))
+                if let _ = error {
+                    completion(.failure(MusicServiceError.userTokenError))
                 } else if let userToken = token {
                     do {
                         try Session.current.beginSession(secrets: [.appleMusicUserToken: userToken])
                         MusicService.configure()
                         completion(.success(true))
-                    } catch (let error) {
-                        completion(.failure(error))
+                    } catch (_) {
+                        completion(.failure(MusicServiceError.userTokenKeychainError))
                     }
                 }
             }
@@ -45,6 +51,8 @@ public class MusicService {
             SKCloudServiceController.requestAuthorization { (status) in
                 if status == .authorized {
                     MusicService.authenticate(completion: completion)
+                } else {
+                    completion(.failure(MusicServiceError.authorizationRejected))
                 }
             }
         }
