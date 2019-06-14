@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
+    <device id="ipad12_9rounded" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -16,17 +16,14 @@
             <objects>
                 <viewController storyboardIdentifier="authViewController" id="X6o-Bf-o0m" customClass="AuthViewController" customModule="Kids_Tunes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mu5-TA-5nc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="music" translatesAutoresizingMaskIntoConstraints="NO" id="qsc-0V-pY2">
-                                <rect key="frame" x="89.5" y="182" width="235" height="235"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="qsc-0V-pY2" secondAttribute="height" multiplier="1:1" id="tR4-V1-fxd"/>
-                                </constraints>
+                                <rect key="frame" x="60" y="84" width="904" height="568"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P4E-XA-LQt">
-                                <rect key="frame" x="45" y="782" width="324" height="50"/>
+                                <rect key="frame" x="45" y="1266" width="934" height="50"/>
                                 <color key="backgroundColor" name="AMK-red"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Due-4o-i7x"/>
@@ -45,25 +42,27 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kidsTunes" translatesAutoresizingMaskIntoConstraints="NO" id="nKE-dn-5Tq">
-                                <rect key="frame" x="60" y="457" width="294" height="72"/>
+                                <rect key="frame" x="60" y="692" width="904" height="72"/>
                                 <color key="tintColor" name="AMK-dark-blue"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="72" id="CWq-ph-shs"/>
                                 </constraints>
                             </imageView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="0wT-O2-3cG">
-                                <rect key="frame" x="188.5" y="574" width="37" height="37"/>
+                                <rect key="frame" x="493.5" y="809" width="37" height="37"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" name="AMK-yellow"/>
                         <constraints>
                             <constraint firstItem="kRz-F7-tu4" firstAttribute="bottom" secondItem="P4E-XA-LQt" secondAttribute="bottom" constant="30" id="4it-Vh-H01"/>
+                            <constraint firstItem="qsc-0V-pY2" firstAttribute="leading" secondItem="kRz-F7-tu4" secondAttribute="leading" constant="60" id="AfQ-1Q-zh9"/>
                             <constraint firstItem="qsc-0V-pY2" firstAttribute="centerX" secondItem="mu5-TA-5nc" secondAttribute="centerX" id="BMM-uK-KTk"/>
                             <constraint firstItem="P4E-XA-LQt" firstAttribute="leading" secondItem="kRz-F7-tu4" secondAttribute="leading" constant="45" id="Hbv-vW-szP"/>
                             <constraint firstItem="0wT-O2-3cG" firstAttribute="centerX" secondItem="mu5-TA-5nc" secondAttribute="centerX" id="Iki-I2-Pnt"/>
                             <constraint firstItem="nKE-dn-5Tq" firstAttribute="centerY" secondItem="mu5-TA-5nc" secondAttribute="centerY" constant="45" id="LDg-h7-2Qc"/>
                             <constraint firstItem="0wT-O2-3cG" firstAttribute="top" secondItem="nKE-dn-5Tq" secondAttribute="bottom" constant="45" id="ML4-Xy-qMS"/>
-                            <constraint firstItem="qsc-0V-pY2" firstAttribute="width" secondItem="nKE-dn-5Tq" secondAttribute="width" multiplier="0.8" id="iiH-qz-cru"/>
+                            <constraint firstItem="kRz-F7-tu4" firstAttribute="trailing" secondItem="qsc-0V-pY2" secondAttribute="trailing" constant="60" id="RR7-vb-D8R"/>
+                            <constraint firstItem="qsc-0V-pY2" firstAttribute="top" secondItem="kRz-F7-tu4" secondAttribute="top" constant="60" id="h4e-09-bEm"/>
                             <constraint firstItem="kRz-F7-tu4" firstAttribute="trailing" secondItem="P4E-XA-LQt" secondAttribute="trailing" constant="45" id="tGw-p0-4l4"/>
                             <constraint firstItem="kRz-F7-tu4" firstAttribute="trailing" secondItem="nKE-dn-5Tq" secondAttribute="trailing" constant="60" id="uu6-AP-S6w"/>
                             <constraint firstItem="nKE-dn-5Tq" firstAttribute="leading" secondItem="kRz-F7-tu4" secondAttribute="leading" constant="60" id="zLE-VS-1uj"/>
@@ -85,14 +84,14 @@
             <objects>
                 <viewController storyboardIdentifier="accountController" id="JmF-v1-18q" customClass="AccountViewController" customModule="Kids_Tunes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HBC-n4-5TW">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6vI-sP-1zc">
-                                <rect key="frame" x="0.0" y="44" width="414" height="140"/>
+                                <rect key="frame" x="0.0" y="24" width="1024" height="140"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wca-h1-pCq">
-                                        <rect key="frame" x="20" y="75" width="374" height="41"/>
+                                        <rect key="frame" x="20" y="75" width="984" height="41"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
                                         <color key="textColor" name="AMK-dark-blue"/>
                                         <nil key="highlightedColor"/>
@@ -107,18 +106,18 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="50" estimatedRowHeight="50" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Z1h-v2-JYC">
-                                <rect key="frame" x="0.0" y="184" width="414" height="577"/>
+                                <rect key="frame" x="0.0" y="164" width="1024" height="1081"/>
                                 <color key="backgroundColor" name="AMK-light-gray"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="logoutButtonCell" id="tfZ-Cy-fQf" customClass="ButtonTableViewCell" customModule="Kids_Tunes" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="55.5" width="414" height="50"/>
+                                        <rect key="frame" x="0.0" y="55.5" width="1024" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tfZ-Cy-fQf" id="dtL-cw-7ni">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="49.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="49.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h0f-aG-QjC">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="49.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="49.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="tintColor" name="AMK-blue"/>
                                                     <state key="normal" title="Log Out"/>
@@ -138,10 +137,10 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="TitleButtonCell" rowHeight="50" id="ubb-3V-3DV" customClass="TitleButtonTableViewCell" customModule="Kids_Tunes" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="105.5" width="414" height="50"/>
+                                        <rect key="frame" x="0.0" y="105.5" width="1024" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ubb-3V-3DV" id="Hv2-i5-Yuf">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="49.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="49.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ejM-xl-Y6r">
@@ -151,7 +150,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hKj-g8-MKe">
-                                                    <rect key="frame" x="343" y="0.0" width="51" height="49.5"/>
+                                                    <rect key="frame" x="249" y="0.0" width="51" height="49.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="tintColor" name="AMK-blue"/>
                                                     <state key="normal" title="Button"/>
@@ -180,13 +179,13 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wCJ-oj-dmb">
-                                <rect key="frame" x="20" y="761" width="374" height="41"/>
+                                <rect key="frame" x="20" y="1245" width="984" height="41"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="rwA-aR-z32">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="41"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="984" height="41"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DISCLAIMER:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="28Z-oE-vLf">
-                                                <rect key="frame" x="0.0" y="0.0" width="374" height="25"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="984" height="25"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="25" id="18Y-TY-yEQ"/>
                                                 </constraints>
@@ -195,7 +194,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a demo app by Assemble Inc" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gnf-Rc-0Ck">
-                                                <rect key="frame" x="0.0" y="25" width="374" height="16"/>
+                                                <rect key="frame" x="0.0" y="25" width="984" height="16"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -237,7 +236,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="kidsTunes" width="268.5" height="45"/>
+        <image name="kidsTunes" width="271" height="43"/>
         <image name="music" width="229" height="262"/>
         <namedColor name="AMK-blue">
             <color red="0.41176470588235292" green="0.63137254901960782" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
