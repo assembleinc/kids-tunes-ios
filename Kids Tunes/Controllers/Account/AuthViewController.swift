@@ -8,6 +8,7 @@
 
 import UIKit
 import StoreKit
+import MessageUI
 
 class AuthViewController: UIViewController {
 
@@ -31,13 +32,50 @@ class AuthViewController: UIViewController {
             switch result {
             case .success(_):
                 self?.resetView()
-            case .failure(_):
-                self?.showServiceSetupView()
+            case .failure(let error):
+                self?.handleError(error: error)
             }
         }
     }
     
-    private func showServiceSetupView() {
+    private func handleError(error: MusicServiceError) {
+        switch error {
+        case .authorizationRejected:
+            presentServiceSetupView()
+        case .userTokenError, .userTokenKeychainError:
+            presentAuthenticationError()
+        }
+    }
+    
+    private func presentAuthenticationError() {
+        let alertController = UIAlertController(title: "Error", message: "We are having trouble getting permission to access your  music library. Please try to login again and if you are still having issues please contact support.", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        let supportAction = UIAlertAction(title: "Support", style: .default) { [weak self] (_) in
+            self?.composeSupportEmail()
+        }
+        alertController.addAction(supportAction)
+        alertController.addAction(okAction)
+        
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    private func composeSupportEmail() {
+        if !MFMailComposeViewController.canSendMail() {
+            print("Mail services are not available")
+            return
+        }
+        
+        let composeVC = MFMailComposeViewController()
+        composeVC.mailComposeDelegate = self
+
+        composeVC.setToRecipients(["kidstunes@assembleinc.com"])
+        composeVC.setSubject("I can't login...")
+        composeVC.setMessageBody("I am getting an error while trying to login to the Kids Tunes iOS app and would love some support!", isHTML: false)
+
+        present(composeVC, animated: true, completion: nil)
+    }
+    
+    private func presentServiceSetupView() {
         let setupViewController = SKCloudServiceSetupViewController()
         setupViewController.delegate = self
         
@@ -75,5 +113,12 @@ extension AuthViewController: SKCloudServiceSetupViewControllerDelegate {
     
     func cloudServiceSetupViewControllerDidDismiss(_ cloudServiceSetupViewController: SKCloudServiceSetupViewController) {
         resetView()
+    }
+}
+
+extension AuthViewController: MFMailComposeViewControllerDelegate {
+    private func mailComposeController(controller: MFMailComposeViewController,
+                               didFinishWithResult result: MFMailComposeResult, error: NSError?) {
+        controller.dismiss(animated: true, completion: nil)
     }
 }
